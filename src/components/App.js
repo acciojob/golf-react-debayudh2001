@@ -49,7 +49,7 @@ const App = () => {
         function handleKeyDown(e){
             if(e.key === "ArrowRight"){
                 setPosition(prev => prev + 5)
-                ball.current.style.transform = `translateX(${position}px)`
+                ball.current.style.transform = `translateX(${position + 5}px)`
             }
         }
         document.addEventListener("keydown", handleKeyDown)
