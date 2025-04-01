@@ -1,4 +1,4 @@
-import React, { Component, useRef, useState } from "react";
+import React, { Component, useEffect, useRef, useState } from "react";
 import '../styles/App.css';
 
 // class App extends Component {
@@ -45,12 +45,18 @@ const App = () => {
     function handleClick(){
         setShowBall(true)
     }
-    document.addEventListener("keydown", (e) => {
-        if(showBall && e.key === "ArrowRight"){
-            setPosition(pos => pos + 5)
-            ball.current.style.transform = `translateX(${position}px)`
+    useEffect(() => {
+        function handleKeyDown(e){
+            if(e.key === "ArrowRight"){
+                setPosition(prev => prev + 5)
+                ball.current.style.transform = `translateX(${position}px)`
+            }
         }
-    })
+        document.addEventListener("keydown", handleKeyDown)
+        return () => {
+            document.removeEventListener("keydown", handleKeyDown)
+        }
+    }, [position])
     return (
         <div>
             <button className={showBall ? "hide" : "start"} onClick={handleClick}>Start</button>

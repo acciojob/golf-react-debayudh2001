@@ -13,7 +13,7 @@ body html .root {
     height: 50px;
     width: 50px;
     border-radius: 25px;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 .hide{
