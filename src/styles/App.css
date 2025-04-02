@@ -10,10 +10,11 @@ body html .root {
     background-color: black;
     box-shadow: 0 10px 10px -6px;
     position: relative;
+    left: 0;
     height: 50px;
     width: 50px;
     border-radius: 25px;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 .hide{

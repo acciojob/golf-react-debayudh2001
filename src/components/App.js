@@ -47,16 +47,17 @@ const App = () => {
     }
     useEffect(() => {
         function handleKeyDown(e){
-            if(e.key === "ArrowRight"){
+            if(showBall && e.key === "ArrowRight"){
                 setPosition(prev => prev + 5)
-                ball.current.style.transform = `translateX(${position + 5}px)`
+                ball.current.style.left = `${position + 5}px`
+                //console.log("key pressed")
             }
         }
         document.addEventListener("keydown", handleKeyDown)
         return () => {
             document.removeEventListener("keydown", handleKeyDown)
         }
-    }, [position])
+    }, [showBall,position])
     return (
         <div>
             <button className={showBall ? "hide" : "start"} onClick={handleClick}>Start</button>
